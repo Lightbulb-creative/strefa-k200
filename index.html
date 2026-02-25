@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STREFA K200 — Nowoczesne Apartamenty w Centrum Miasta</title>
+  <meta name="description"
+    content="STREFA K200 to nowa inwestycja deweloperska oferująca nowoczesne apartamenty w centrum miasta. Znajdź swoje wymarzone mieszkanie z pełnościennymi przeszkleniami i przestronnymi balkonami.">
+  <meta name="keywords"
+    content="STREFA K200, apartamenty, mieszkania, deweloper, nowa inwestycja, nowoczesne mieszkania">
+  <meta name="author" content="STREFA K200">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="STREFA K200 — Nowoczesne Apartamenty">
+  <meta property="og:description"
+    content="Odkryj nowoczesne apartamenty w centrum miasta. Przestrzeń, komfort i najwyższa jakość wykonania.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/5-render_4.jpg">
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23c9a96e'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='central' font-family='serif' font-size='16' font-weight='700' fill='%230a0a0a'%3EK%3C/text%3E%3C/svg%3E">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">K2</div>
+        <span class="nav-logo-text">STREFA <span>K200</span></span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#o-nas">O nas</a>
+        <a href="#inwestycja">Inwestycja</a>
+        <a href="#znajdz-mieszkanie">Znajdź mieszkanie</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#lokalizacja">Lokalizacja</a>
+        <a href="#kontakt" class="nav-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          Kontakt
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <video class="hero-video" autoplay loop muted playsinline poster="assets/images/5-render_4.jpg">
+        <source src="assets/images/1-K200 LODZ ANIMACJA A1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Sprzedaż trwa — Etap I
+      </div>
+      <h1 class="hero-title">
+        STREFA <span class="accent">K200</span>
+      </h1>
+      <p class="hero-subtitle">
+        Nowoczesne apartamenty w sercu miasta. Przestrzeń, komfort i architektura na najwyższym poziomie —
+        zaprojektowane z myślą o wymagających.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="hero-search" id="heroSearch">
+        <div class="search-field">
+          <label for="search-rooms">Liczba pokoi</label>
+          <select id="search-rooms">
+            <option value="">Wszystkie</option>
+            <option value="2">2 pokoje</option>
+            <option value="3">3 pokoje</option>
+            <option value="4">4 pokoje</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="search-area-min">Powierzchnia od</label>
+          <input type="number" id="search-area-min" placeholder="40 m²" min="0">
+        </div>
+        <div class="search-field">
+          <label for="search-area-max">Powierzchnia do</label>
+          <input type="number" id="search-area-max" placeholder="120 m²" min="0">
+        </div>
+        <div class="search-field">
+          <label for="search-floor">Piętro</label>
+          <select id="search-floor">
+            <option value="">Wszystkie</option>
+            <option value="0">Parter</option>
+            <option value="1">I piętro</option>
+            <option value="2">II piętro</option>
+            <option value="3">III piętro</option>
+            <option value="4">IV piętro</option>
+          </select>
+        </div>
+        <button class="search-btn" id="searchBtn" onclick="scrollToApartments()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          Szukaj
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT SECTION
+       ============================================ -->
+  <section id="o-nas" class="section-padding">
+    <div class="about-watermark">STREFA&nbsp;K200&nbsp;STREFA&nbsp;K200</div>
+    <div class="container">
+      <h2 class="section-title reveal">O Inwestycji</h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>STREFA K200 to nowoczesna inwestycja deweloperska zlokalizowana w prestiżowej lokalizacji miejskiej.
+            Projekt architektoniczny budynku łączy najnowsze trendy w architekturze z funkcjonalnymi rozwiązaniami,
+            tworząc przestrzeń idealną dla osób ceniących komfort i styl życia.</p>
+          <p>Zróżnicowana elewacja w odcieniach bieli, szarości i cegły, z akcentami drewnianymi, nadaje budynkowi
+            wyjątkowy charakter. Duże przeszklenia, szklane balustrady na balkonach i starannie zaprojektowane detale
+            architektoniczne tworzą harmonijną całość, doskonale wpisującą się w miejski krajobraz.</p>
+          <p>Każdy apartament został zaprojektowany z dbałością o najdrobniejsze szczegóły — od przestronnych living
+            roomów, przez panoramiczne okna, po balkony idealne do relaksu. Stawiamy na solidność wykonania i materiały
+            najwyższej jakości, które zapewnią komfort na lata.</p>
+        </div>
+        <div class="about-image reveal reveal-delay-2">
+          <img src="assets/images/2-render.jpg" alt="STREFA K200 - widok na budynek z zewnątrz">
+        </div>
+      </div>
+
+      <div class="about-stats reveal reveal-delay-3">
+        <div class="stat-item">
+          <span class="stat-number" data-target="80">0</span>
+          <span class="stat-label">Apartamentów</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="4">0</span>
+          <span class="stat-label">Budynki</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">62–85</span>
+          <span class="stat-label">m² Powierzchni</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       INVESTMENT / FEATURES SECTION
+       ============================================ -->
+  <section id="inwestycja" class="section-padding">
+    <div class="container">
+      <h2 class="section-title reveal">Inwestycja</h2>
+
+      <div class="invest-intro reveal">
+        <p>W architekturze STREFA K200 inspirowaliśmy się najnowszymi trendami europejskimi. Każdy apartament posiada
+          przestronny living room, panoramiczne przeszklenia i balkony, które latem powiększają przestrzeń relaksu o
+          nawet 20 m².</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">🏗️</div>
+          <h3>Nowoczesna architektura</h3>
+          <p>Zróżnicowana elewacja z elementami białymi, szarymi i ceglanymi. Detale drewniane i szklane balustrady
+            nadają budynkowi prestiżowy charakter.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">🪟</div>
+          <h3>Panoramiczne okna</h3>
+          <p>Pełnościenne przeszklenia zapewniają nieograniczony dostęp światła dziennego. Przesuwne okna w systemie HS
+            doskonale komunikują z balkonem.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">🌿</div>
+          <h3>Przestrzeń do relaksu</h3>
+          <p>Ogromne balkony (do 20 m²) pomieszczą meble wypoczynkowe i pełnowymiarowy stół do posiłków na świeżym
+            powietrzu.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">🚗</div>
+          <h3>Garaż podziemny</h3>
+          <p>Wszystkie miejsca parkingowe w garażach podziemnych z punktami ładowania samochodów elektrycznych. Więcej
+            przestrzeni na rekreację.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">👨‍👩‍👧‍👦</div>
+          <h3>Kameralność</h3>
+          <p>Zaledwie 4 apartamenty na każdym piętrze zamiast anonimowych korytarzy. Sąsiedzi tworzą wspólnotę wyznającą
+            podobne wartości.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">🔒</div>
+          <h3>Bezpieczeństwo</h3>
+          <p>Monitoring, kontrola dostępu, ogrodzony teren z placem zabaw. Wózkownia i rowerownia z stanowiskiem do
+            napraw.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FIND APARTMENT SECTION
+       ============================================ -->
+  <section id="znajdz-mieszkanie" class="section-padding">
+    <div class="container">
+      <h2 class="section-title reveal">Znajdź Mieszkanie</h2>
+
+      <!-- Filters -->
+      <div class="apartment-filters reveal">
+        <div class="filter-group">
+          <label for="filter-building">Budynek</label>
+          <select id="filter-building" onchange="filterApartments()">
+            <option value="">Wszystkie</option>
+            <option value="A">Budynek A</option>
+            <option value="B">Budynek B</option>
+            <option value="C">Budynek C (Etap II)</option>
+            <option value="D">Budynek D (Etap II)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-rooms">Pokoje</label>
+          <select id="filter-rooms" onchange="filterApartments()">
+            <option value="">Wszystkie</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-floor">Piętro</label>
+          <select id="filter-floor" onchange="filterApartments()">
+            <option value="">Wszystkie</option>
+            <option value="0">Parter</option>
+            <option value="1">I</option>
+            <option value="2">II</option>
+            <option value="3">III</option>
+            <option value="4">IV</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-status">Status</label>
+          <select id="filter-status" onchange="filterApartments()">
+            <option value="">Wszystkie</option>
+            <option value="available">Wolne</option>
+            <option value="reserved">Zarezerwowane</option>
+            <option value="sold">Sprzedane</option>
+          </select>
+        </div>
+        <button class="filter-btn" onclick="resetFilters()">Reset</button>
+      </div>
+
+      <!-- Apartment Table -->
+      <div class="apartment-table-wrapper reveal">
+        <table class="apartment-table" id="apartmentTable">
+          <thead>
+            <tr>
+              <th onclick="sortTable(0)">Lokal <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(1)">Budynek <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(2)">Piętro <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(3)">Pokoje <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(4)">Powierzchnia <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(5)">Cena <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(6)">Cena/m² <span class="sort-arrow">↕</span></th>
+              <th>Status</th>
+              <th>Akcje</th>
+            </tr>
+          </thead>
+          <tbody id="apartmentBody">
+            <!-- Populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="table-pagination" id="tablePagination">
+        <!-- Populated by JavaScript -->
+      </div>
+
+      <!-- Price Report Widget -->
+      <div class="price-report-section reveal">
+        <h3 class="price-report-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="23" />
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+          Raport cenowy inwestycji
+        </h3>
+        <div class="price-report-grid" id="priceReport">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       GALLERY
+       ============================================ -->
+  <section id="galeria" class="section-padding">
+    <div class="container">
+      <h2 class="section-title reveal">Galeria</h2>
+      <div class="gallery-grid reveal" id="galleryGrid">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       LOCATION
+       ============================================ -->
+  <section id="lokalizacja" class="section-padding">
+    <div class="container">
+      <h2 class="section-title reveal">Lokalizacja</h2>
+      <p class="section-subtitle reveal" style="margin-bottom: var(--space-xl);">
+        Doskonała lokalizacja z łatwym dostępem do szkół, parków, centrów handlowych, restauracji i komunikacji
+        miejskiej.
+      </p>
+
+      <div class="location-grid reveal">
+        <div class="location-tabs">
+          <div class="location-tab active" data-category="all">
+            <span class="location-tab-icon">📍</span>
+            Wszystko w pobliżu
+          </div>
+          <div class="location-tab" data-category="education">
+            <span class="location-tab-icon">🎓</span>
+            Edukacja
+          </div>
+          <div class="location-tab" data-category="nature">
+            <span class="location-tab-icon">🌳</span>
+            Natura
+          </div>
+          <div class="location-tab" data-category="sport">
+            <span class="location-tab-icon">⚽</span>
+            Sport
+          </div>
+          <div class="location-tab" data-category="shopping">
+            <span class="location-tab-icon">🛒</span>
+            Usługi
+          </div>
+          <div class="location-tab" data-category="food">
+            <span class="location-tab-icon">🍽️</span>
+            Restauracje
+          </div>
+          <div class="location-tab" data-category="health">
+            <span class="location-tab-icon">🏥</span>
+            Zdrowie
+          </div>
+          <div class="location-tab" data-category="transport">
+            <span class="location-tab-icon">🚌</span>
+            Komunikacja
+          </div>
+        </div>
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2500!2d19.9!3d52.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDA2JzAwLjAiTiAxOcKwNTQnMDAuMCJF!5e0!3m2!1spl!2spl!4v1!5m2!1spl!2spl"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa lokalizacji STREFA K200">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CONTACT SECTION
+       ============================================ -->
+  <section id="kontakt" class="section-padding">
+    <div class="container">
+      <h2 class="section-title reveal">Kontakt</h2>
+
+      <div class="contact-grid">
+        <!-- Form -->
+        <form class="contact-form reveal" id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="contact-name">Imię i nazwisko *</label>
+            <input type="text" id="contact-name" required placeholder="Jan Kowalski">
+          </div>
+          <div class="form-group">
+            <label for="contact-email">E-mail *</label>
+            <input type="email" id="contact-email" required placeholder="jan@example.com">
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Telefon</label>
+            <input type="tel" id="contact-phone" placeholder="+48 123 456 789">
+          </div>
+          <div class="form-group">
+            <label for="contact-apartment">Interesujący lokal</label>
+            <select id="contact-apartment">
+              <option value="">Wybierz lokal (opcjonalnie)</option>
+              <!-- Populated by JavaScript -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Wiadomość</label>
+            <textarea id="contact-message" placeholder="Proszę o kontakt w sprawie..."></textarea>
+          </div>
+
+          <div class="form-checkbox">
+            <input type="checkbox" id="consent-rodo" required>
+            <label for="consent-rodo">Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a href="#"
+                onclick="openModal('rodoModal'); return false;">Polityką prywatności (RODO)</a> w celu odpowiedzi na
+              moje zapytanie. *</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="consent-marketing">
+            <label for="consent-marketing">Wyrażam zgodę na otrzymywanie informacji handlowych drogą elektroniczną od
+              STREFA K200 Sp. z o.o.</label>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="consent-terms" required>
+            <label for="consent-terms">Oświadczam, że zapoznałem/am się z <a href="#"
+                onclick="openModal('regulaminModal'); return false;">Regulaminem</a> strony. *</label>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Wyślij zapytanie
+          </button>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="contact-info reveal reveal-delay-2">
+          <div class="contact-info-card">
+            <h3>Biuro Sprzedaży</h3>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>ul. Przykładowa 200, 00-001 Miasto</span>
+            </div>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <a href="tel:+48123456789">+48 123 456 789</a>
+            </div>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:biuro@strefak200.pl">biuro@strefak200.pl</a>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <h3>Godziny otwarcia</h3>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>Pon–Pt: 9:00 – 17:00</span>
+            </div>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>Sob: 10:00 – 14:00 (po umówieniu)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-name">STREFA <span>K200</span></div>
+          <p>Nowoczesna inwestycja deweloperska. Przestrzeń, komfort i architektura na najwyższym poziomie. © 2025–2026
+            STREFA K200 Sp. z o.o.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="#o-nas">O nas</a></li>
+            <li><a href="#inwestycja">Inwestycja</a></li>
+            <li><a href="#znajdz-mieszkanie">Znajdź mieszkanie</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#lokalizacja">Lokalizacja</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Prawne</h4>
+          <ul>
+            <li><a href="#" onclick="openModal('rodoModal'); return false;">Polityka prywatności (RODO)</a></li>
+            <li><a href="#" onclick="openModal('regulaminModal'); return false;">Regulamin</a></li>
+            <li><a href="#" onclick="openModal('cookieModal'); return false;">Polityka cookies</a></li>
+            <li><a href="#" onclick="openModal('prospektModal'); return false;">Prospekt informacyjny</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="tel:+48123456789">+48 123 456 789</a></li>
+            <li><a href="mailto:biuro@strefak200.pl">biuro@strefak200.pl</a></li>
+            <li>ul. Przykładowa 200</li>
+            <li>00-001 Miasto</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025–2026 STREFA K200 Sp. z o.o. Wszelkie prawa zastrzeżone.</span>
+        <div>
+          <a href="#" onclick="openModal('rodoModal'); return false;">RODO</a> •
+          <a href="#" onclick="openModal('regulaminModal'); return false;">Regulamin</a> •
+          <a href="#" onclick="openModal('cookieModal'); return false;">Cookies</a>
+        </div>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       FLOATING ACTIONS
+       ============================================ -->
+  <div class="floating-actions">
+    <a href="tel:+48123456789" class="floating-btn" title="Zadzwoń">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+    </a>
+    <button class="floating-btn scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+      title="Powrót na górę">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- ============================================
+       COOKIE CONSENT BAR
+       ============================================ -->
+  <div class="cookie-bar" id="cookieBar">
+    <div class="container">
+      <p>Używamy plików cookies w celu zapewnienia prawidłowego działania strony oraz analizy ruchu. Korzystając z tej
+        strony, wyrażasz zgodę na ich stosowanie. Więcej informacji w naszej <a href="#"
+          onclick="openModal('cookieModal'); return false;">Polityce cookies</a>.</p>
+      <div class="cookie-btns">
+        <button class="cookie-accept" onclick="acceptCookies()">Akceptuję</button>
+        <button class="cookie-settings" onclick="openModal('cookieModal')">Ustawienia</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       LEGAL MODALS
+       ============================================ -->
+
+  <!-- RODO / Privacy Policy Modal -->
+  <div class="modal-overlay" id="rodoModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('rodoModal')">✕</button>
+      <h2>Polityka Prywatności (RODO)</h2>
+
+      <h3>1. Administrator Danych</h3>
+      <p>Administratorem Pani/Pana danych osobowych jest STREFA K200 Sp. z o.o. z siedzibą przy ul. Przykładowej 200,
+        00-001 Miasto, NIP: XXXXXXXXXX, REGON: XXXXXXXXXX (dalej: „Administrator").</p>
+
+      <h3>2. Dane kontaktowe Inspektora Ochrony Danych</h3>
+      <p>W sprawach dotyczących przetwarzania danych osobowych prosimy o kontakt pod adresem: <a
+          href="mailto:iod@strefak200.pl">iod@strefak200.pl</a></p>
+
+      <h3>3. Cel i podstawa prawna przetwarzania</h3>
+      <p>Pani/Pana dane osobowe przetwarzane będą w celu:</p>
+      <ul>
+        <li>Odpowiedzi na zapytanie złożone za pośrednictwem formularza kontaktowego (art. 6 ust. 1 lit. b RODO)</li>
+        <li>Realizacji obowiązków prawnych ciążących na Administratorze (art. 6 ust. 1 lit. c RODO)</li>
+        <li>Marketingu bezpośredniego produktów i usług Administratora (art. 6 ust. 1 lit. a RODO — na podstawie
+          odrębnej zgody)</li>
+        <li>Ustalenia, dochodzenia lub obrony roszczeń (art. 6 ust. 1 lit. f RODO)</li>
+      </ul>
+
+      <h3>4. Odbiorcy danych</h3>
+      <p>Pani/Pana dane mogą być przekazywane podmiotom współpracującym z Administratorem, w tym: firmom informatycznym
+        obsługującym stronę, kancelariom prawnym, instytucjom finansowym uczestniczącym w procesie sprzedaży.</p>
+
+      <h3>5. Okres przechowywania</h3>
+      <p>Dane osobowe będą przechowywane przez okres niezbędny do realizacji celu, dla którego zostały zebrane, a po tym
+        czasie przez okres wynikający z przepisów prawa lub do momentu wycofania zgody.</p>
+
+      <h3>6. Prawa osoby, której dane dotyczą</h3>
+      <p>Przysługuje Pani/Panu prawo do:</p>
+      <ul>
+        <li>Dostępu do treści swoich danych (art. 15 RODO)</li>
+        <li>Sprostowania danych (art. 16 RODO)</li>
+        <li>Usunięcia danych — „prawo do bycia zapomnianym" (art. 17 RODO)</li>
+        <li>Ograniczenia przetwarzania (art. 18 RODO)</li>
+        <li>Przenoszenia danych (art. 20 RODO)</li>
+        <li>Wniesienia sprzeciwu wobec przetwarzania (art. 21 RODO)</li>
+        <li>Wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych</li>
+      </ul>
+
+      <h3>7. Informacja o dobrowolności podania danych</h3>
+      <p>Podanie danych osobowych jest dobrowolne, jednak niezbędne do realizacji wymienionych celów.</p>
+    </div>
+  </div>
+
+  <!-- Regulamin Modal -->
+  <div class="modal-overlay" id="regulaminModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('regulaminModal')">✕</button>
+      <h2>Regulamin strony internetowej</h2>
+
+      <h3>§1 Postanowienia ogólne</h3>
+      <p>1. Niniejszy Regulamin określa zasady korzystania ze strony internetowej strefak200.pl (dalej: „Strona")
+        prowadzonej przez STREFA K200 Sp. z o.o.</p>
+      <p>2. Strona służy prezentacji oferty deweloperskiej oraz umożliwia kontakt z biurem sprzedaży.</p>
+
+      <h3>§2 Warunki korzystania</h3>
+      <p>1. Korzystanie ze Strony jest bezpłatne i nie wymaga rejestracji.</p>
+      <p>2. Użytkownik zobowiązany jest do korzystania ze Strony w sposób zgodny z prawem i dobrymi obyczajami.</p>
+      <p>3. Zabronione jest dostarczanie treści o charakterze bezprawnym.</p>
+
+      <h3>§3 Formularz kontaktowy</h3>
+      <p>1. Użytkownik może skontaktować się z Administratorem za pośrednictwem formularza kontaktowego dostępnego na
+        Stronie.</p>
+      <p>2. Podanie danych osobowych jest dobrowolne, ale niezbędne do uzyskania odpowiedzi na zapytanie.</p>
+
+      <h3>§4 Odpowiedzialność</h3>
+      <p>1. Administrator dokłada wszelkich starań, aby informacje zamieszczone na Stronie były aktualne i rzetelne.</p>
+      <p>2. Wizualizacje, rzuty i dane techniczne mają charakter poglądowy i mogą ulec zmianie.</p>
+      <p>3. Wiążącą ofertą w rozumieniu prawa jest wyłącznie umowa deweloperska.</p>
+
+      <h3>§5 Prawa autorskie</h3>
+      <p>Wszystkie treści zamieszczone na Stronie (teksty, grafiki, zdjęcia, wizualizacje, logotypy) są chronione prawem
+        autorskim i stanowią własność Administratora lub podmiotów trzecich, które udzieliły licencji na ich
+        wykorzystanie.</p>
+
+      <h3>§6 Postanowienia końcowe</h3>
+      <p>1. Administrator zastrzega sobie prawo do zmiany Regulaminu w każdym czasie.</p>
+      <p>2. W sprawach nieuregulowanych niniejszym Regulaminem stosuje się przepisy prawa polskiego.</p>
+    </div>
+  </div>
+
+  <!-- Cookie Policy Modal -->
+  <div class="modal-overlay" id="cookieModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('cookieModal')">✕</button>
+      <h2>Polityka Cookies</h2>
+
+      <h3>1. Czym są pliki cookies?</h3>
+      <p>Cookies to małe pliki tekstowe przechowywane na urządzeniu końcowym użytkownika. Służą do prawidłowego
+        działania strony, analizy ruchu oraz personalizacji treści.</p>
+
+      <h3>2. Rodzaje cookies</h3>
+      <p>Na naszej stronie wykorzystujemy następujące rodzaje plików cookies:</p>
+      <ul>
+        <li><strong>Niezbędne</strong> — konieczne do prawidłowego działania strony. Nie wymagają zgody użytkownika.
+        </li>
+        <li><strong>Analityczne</strong> — pozwalają analizować ruch na stronie i poprawiać jej funkcjonalność (np.
+          Google Analytics).</li>
+        <li><strong>Marketingowe</strong> — służą do wyświetlania reklam dopasowanych do zainteresowań użytkownika.</li>
+      </ul>
+
+      <h3>3. Zarządzanie cookies</h3>
+      <p>Użytkownik może w każdej chwili zmienić ustawienia dotyczące plików cookies w swojej przeglądarce internetowej,
+        w tym zablokować ich zapisywanie lub usunąć już zapisane pliki.</p>
+
+      <h3>4. Podstawa prawna</h3>
+      <p>Przetwarzanie danych osobowych za pomocą plików cookies odbywa się na podstawie art. 6 ust. 1 lit. a RODO
+        (zgoda) lub art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes Administratora).</p>
+    </div>
+  </div>
+
+  <!-- Prospekt informacyjny Modal -->
+  <div class="modal-overlay" id="prospektModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('prospektModal')">✕</button>
+      <h2>Prospekt informacyjny</h2>
+
+      <h3>Informacje o deweloperze</h3>
+      <p><strong>Firma:</strong> STREFA K200 Sp. z o.o.</p>
+      <p><strong>Siedziba:</strong> ul. Przykładowa 200, 00-001 Miasto</p>
+      <p><strong>NIP:</strong> XXXXXXXXXX</p>
+      <p><strong>REGON:</strong> XXXXXXXXXX</p>
+      <p><strong>KRS:</strong> XXXXXXXXXX</p>
+
+      <h3>Informacje o inwestycji</h3>
+      <p><strong>Nazwa:</strong> STREFA K200</p>
+      <p><strong>Adres:</strong> ul. Przykładowa 200, 00-001 Miasto</p>
+      <p><strong>Etap I:</strong> Budynek A i B — planowane oddanie Q4 2026</p>
+      <p><strong>Etap II:</strong> Budynek C i D — planowane oddanie Q2 2027</p>
+
+      <h3>Środki ochrony nabywcy</h3>
+      <p>Zgodnie z Ustawą z dnia 20 maja 2021 r. o ochronie praw nabywcy lokalu mieszkalnego lub domu jednorodzinnego
+        oraz Deweloperskim Funduszu Gwarancyjnym, wszystkie wpłaty klientów kierowane są na otwarty mieszkaniowy
+        rachunek powierniczy prowadzony przez [Nazwa Banku].</p>
+
+      <h3>Uwaga</h3>
+      <p>Niniejszy prospekt informacyjny ma charakter poglądowy. Pełny prospekt informacyjny w rozumieniu ustawy
+        deweloperskiej jest udostępniany osobom zainteresowanym przed zawarciem umowy deweloperskiej w biurze sprzedaży
+        lub drogą elektroniczną na żądanie.</p>
+    </div>
+  </div>
+
+  <!-- ============================================
+       LIGHTBOX
+       ============================================ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="Powiększone zdjęcie">
+  </div>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script src="app.js"></script>
+</body>
+
+</html>
