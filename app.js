@@ -541,11 +541,31 @@ function handleFormSubmit(e) {
 // ============================================
 function initLocationTabs() {
   const tabs = document.querySelectorAll('.location-tab');
+  const iframe = document.querySelector('.location-map iframe');
+
+  const mapQueries = {
+    all: 'Jana Kilińskiego 200, Łódź',
+    education: 'Szkoły uczelnie w pobliżu Jana Kilińskiego 200, Łódź',
+    nature: 'Parki w pobliżu Jana Kilińskiego 200, Łódź',
+    sport: 'Sport siłownie w pobliżu Jana Kilińskiego 200, Łódź',
+    shopping: 'Sklepy supermarkety w pobliżu Jana Kilińskiego 200, Łódź',
+    food: 'Restauracje gastronomia w pobliżu Jana Kilińskiego 200, Łódź',
+    health: 'Przychodnie szpitale apteki w pobliżu Jana Kilińskiego 200, Łódź',
+    transport: 'Przystanki komunikacji miejskiej w pobliżu Jana Kilińskiego 200, Łódź'
+  };
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      // In a real implementation, this would filter map markers
+
+      const category = tab.getAttribute('data-category');
+      const searchQuery = mapQueries[category] || mapQueries.all;
+
+      // Update iframe source
+      if (iframe) {
+        iframe.src = `https://maps.google.com/maps?q=${encodeURIComponent(searchQuery)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+      }
     });
   });
 }
