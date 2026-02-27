@@ -7,7 +7,7 @@
 // ============================================
 const apartments = [
   // Building A
-  { id: 'A.01', building: 'A', floor: 0, rooms: 3, area: 62.30, price: 560700, status: 'sold' },
+  { id: 'A.01', building: 'A', floor: 0, rooms: 3, area: 62.30, price: 560700, status: 'sold', card: 'assets/Zrzut%20ekranu%202026-02-26%20o%2012.29.53.png' },
   { id: 'A.02', building: 'A', floor: 0, rooms: 4, area: 68.15, price: 613350, status: 'reserved' },
   { id: 'A.03', building: 'A', floor: 0, rooms: 4, area: 85.20, price: 766800, status: 'available' },
   { id: 'A.04', building: 'A', floor: 0, rooms: 4, area: 85.50, price: 769500, status: 'sold' },
@@ -287,7 +287,7 @@ function renderApartments() {
       <td>${formatPricePerM2(apt.price, apt.area)}/m²</td>
       <td>${getStatusBadge(apt.status)}</td>
       <td>
-        <button class="table-action-btn" title="Karta lokalu" onclick="alert('Karta lokalu ${apt.id} — wkrótce dostępna jako PDF')">
+        <button class="table-action-btn" title="Karta lokalu" onclick="${apt.card ? `window.open('${apt.card}', '_blank')` : `alert('Karta lokalu ${apt.id} — wkrótce dostępna jako PDF')`}">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </button>
         <button class="table-action-btn" title="Zapytaj o lokal" onclick="askAboutApartment('${apt.id}')">
