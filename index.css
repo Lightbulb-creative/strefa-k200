@@ -427,11 +427,12 @@ input {
 
 .hero-subtitle {
     font-size: 1.15rem;
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     max-width: 550px;
     margin-bottom: var(--space-lg);
     line-height: 1.8;
-    font-weight: 300;
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-badge {
@@ -1785,6 +1786,14 @@ input {
 
     .hero {
         min-height: 500px;
+    }
+
+    .hero-content {
+        padding-top: var(--space-xl);
+    }
+
+    .hero-logo {
+        max-width: 80%;
     }
 
     .price-report-grid {
