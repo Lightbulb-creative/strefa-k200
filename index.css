@@ -419,8 +419,8 @@ input {
 
 .hero-logo {
     max-width: 100%;
-    width: 400px;
-    /* Zmniejszone wedle życzenia względem wcześniejszego powrotu */
+    width: 300px;
+    /* Zmniejszone ponownie wedle życzenia */
     height: auto;
     object-fit: contain;
 }
