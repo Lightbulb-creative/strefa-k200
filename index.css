@@ -1723,7 +1723,9 @@ input {
 
 @media (max-width: 768px) {
     .hero {
-        min-height: 600px;
+        min-height: 100vh;
+        height: auto;
+        padding-top: calc(var(--nav-height) + var(--space-xl));
     }
 
     .hero-search {
@@ -1785,11 +1787,7 @@ input {
     }
 
     .hero {
-        min-height: 500px;
-    }
-
-    .hero-content {
-        padding-top: var(--space-xl);
+        min-height: 100vh;
     }
 
     .hero-logo {
