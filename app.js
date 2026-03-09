@@ -112,6 +112,12 @@ const galleryImages = [
   { src: 'assets/images/12-render_13.jpg', label: 'Wnętrze — Sypialnia 2' },
   { src: 'assets/images/13-render_14.jpg', label: 'Wnętrze — Łazienka' },
   { src: 'assets/images/14-render_15.jpg', label: 'Wnętrze — Przestrzeń wspólna' },
+  { src: 'assets/K200_pow_wsp/Korytarz%20z%20muralem%20%C5%81odzi.png', label: 'Przestrzeń wspólna — Korytarz (zdjęcie poglądowe)' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%2027%20lut%202026,%2011_52_09.png', label: 'Przestrzeń wspólna — Wnętrze (zdjęcie poglądowe)' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%202%20mar%202026,%2008_14_32.png', label: 'Przestrzeń wspólna — Lobby (zdjęcie poglądowe)' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%202%20mar%202026,%2008_16_13.png', label: 'Przestrzeń wspólna — Detal (zdjęcie poglądowe)' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%203%20mar%202026,%2008_50_07.png', label: 'Przestrzeń wspólna — Wypoczynek (zdjęcie poglądowe)' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%203%20mar%202026,%2008_50_17.png', label: 'Przestrzeń wspólna — Strefa relaksu (zdjęcie poglądowe)' },
 ];
 
 // ============================================
