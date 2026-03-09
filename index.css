@@ -249,6 +249,7 @@ input {
 .nav-logo img {
     height: 48px;
     width: auto;
+    max-width: 60vw;
     object-fit: contain;
     transition: transform var(--transition-fast);
 }
@@ -409,15 +410,18 @@ input {
 }
 
 .hero-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-hero);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
     margin-bottom: var(--space-md);
-    line-height: 0;
 }
 
-.hero-logo {
-    max-width: 100%;
-    width: 600px;
-    height: auto;
-    object-fit: contain;
+.hero-title .accent {
+    color: var(--color-accent);
+    font-style: italic;
+    font-weight: 400;
 }
 
 .hero-subtitle {
