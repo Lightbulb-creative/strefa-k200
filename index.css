@@ -300,26 +300,27 @@ input {
     width: 100%;
 }
 
-.nav-cta {
+a.nav-cta {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-xs);
-    padding: 0.6rem 1.5rem;
+    gap: var(--space-sm);
+    padding: 0.6rem 1.8rem !important;
     background: var(--color-accent);
     color: var(--color-bg-primary) !important;
-    font-weight: 600;
-    font-size: var(--fs-small);
+    font-weight: 700;
+    font-size: 0.8rem;
     letter-spacing: var(--ls-wide);
     text-transform: uppercase;
     border-radius: var(--radius-sm);
     transition: background var(--transition-fast), transform var(--transition-fast) !important;
+    text-shadow: none !important;
 }
 
-.nav-cta::after {
+a.nav-cta::after {
     display: none !important;
 }
 
-.nav-cta:hover {
+a.nav-cta:hover {
     background: var(--color-accent-light);
     color: var(--color-bg-primary) !important;
     transform: translateY(-2px);
