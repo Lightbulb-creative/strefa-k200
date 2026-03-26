@@ -770,6 +770,71 @@ a.nav-cta:hover {
 }
 
 /* ============================================
+   INTERACTIVE FINDER
+   ============================================ */
+.interactive-finder {
+    margin-bottom: var(--space-2xl);
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.finder-header {
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(10, 10, 10, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.finder-container {
+    position: relative;
+    width: 100%;
+    /* Wysokość podyktowana przez sam obrazek */
+}
+
+.finder-bg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.finder-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.finder-poly {
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity var(--transition-fast), fill var(--transition-fast);
+}
+
+.finder-poly:hover {
+    opacity: 1;
+}
+
+/* Status colors for apartments */
+.finder-poly.free {
+    fill: rgba(46, 204, 113, 0.4) !important;
+}
+
+.finder-poly.reserved {
+    fill: rgba(241, 196, 15, 0.4) !important;
+}
+
+.finder-poly.sold {
+    fill: rgba(231, 76, 60, 0.4) !important;
+    cursor: not-allowed;
+}
+
+/* ============================================
    FIND APARTMENT (SEARCH + TABLE)
    ============================================ */
 #znajdz-mieszkanie {

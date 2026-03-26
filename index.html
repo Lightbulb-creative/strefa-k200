@@ -229,8 +229,40 @@
     <div class="container">
       <h2 class="section-title reveal">Znajdź Mieszkanie</h2>
 
+      <!-- Interactive Finder (Mockup) -->
+      <div class="interactive-finder reveal" id="interactiveApp">
+        <div class="finder-header">
+          <h3 id="finder-title" style="margin-bottom: 0;">Wybierz piętro na budynku</h3>
+          <button id="btn-back-to-building" class="btn btn-outline" style="display:none; padding: 0.5rem 1rem;">⬅ Powrót do widoku bloku</button>
+        </div>
+        
+        <!-- BUILDING VIEW -->
+        <div class="finder-container" id="building-view">
+          <img src="assets/KORONKI DODATKOWE WIDOKI/4-render_4.jpg" alt="Widok Budynku" class="finder-bg">
+          <svg class="finder-svg" viewBox="0 0 100 70.92" preserveAspectRatio="none">
+            <polygon points="7.6,33.6 21.1,41.7 88.9,6.5 88.4,11.1 21.6,47.5 8.2,39.1" data-floor="3" class="finder-poly" fill="rgba(201,169,110,0.6)"></polygon>
+            <polygon points="8.3,39.6 21.7,47.4 88.2,11.7 87.8,14.8 22,51.9 8.9,44.1" data-floor="2" class="finder-poly" fill="rgba(201,169,110,0.6)"></polygon>
+            <polygon points="9.2,44.1 22.4,52.5 87.8,14.8 87.4,18.5 22.4,56.7 9.7,48.7" data-floor="1" class="finder-poly" fill="rgba(201,169,110,0.6)"></polygon>
+            <polygon points="9.5,48.4 22.4,57.1 87.5,18 87.1,23.5 23.4,63.3 10.2,54" data-floor="0" class="finder-poly" fill="rgba(201,169,110,0.6)"></polygon>
+          </svg>
+        </div>
+
+        <!-- FLOOR VIEW -->
+        <div class="finder-container" id="floor-view" style="display:none;">
+          <!-- Placeholder rzutu piętra -->
+          <div style="position: absolute; inset:0; background: #1a1a1a; display: flex; align-items: center; justify-content: center; border: 2px dashed #333;">
+              <span style="color:#666; font-size: 2rem;">MIEJSCE NA RZUT 2D PIĘTRA</span>
+          </div>
+          <svg class="finder-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+            <!-- pseudo-polygons for apartments (mockup) -->
+            <polygon points="400,200 900,200 900,900 400,900" data-apt="Mieszkanie A.01" class="finder-poly apt-poly free"></polygon>
+            <polygon points="1000,200 1500,200 1500,900 1000,900" data-apt="Mieszkanie A.02" class="finder-poly apt-poly reserved"></polygon>
+          </svg>
+        </div>
+      </div>
+
       <!-- Filters -->
-      <div class="apartment-filters reveal">
+      <div class="apartment-filters reveal" style="margin-top: 2rem;">
         <div class="filter-group">
           <label for="filter-building">Budynek</label>
           <select id="filter-building" onchange="filterApartments()">

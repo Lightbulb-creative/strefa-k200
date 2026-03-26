@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
   populateContactApartments();
   initLocationTabs();
   initCookieBar();
+  initInteractiveMap();
 });
 
 // ============================================
