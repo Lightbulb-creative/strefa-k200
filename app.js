@@ -3,129 +3,115 @@
    ============================================ */
 
 // ============================================
-// APARTMENT DATA
+// APARTMENT DATA (from lista.pdf + karty_lokali)
 // ============================================
 const apartments = [
-  // Building A
-  { id: 'A.01', building: 'A', floor: 0, rooms: 3, area: 62.30, price: 560700, status: 'sold', card: 'assets/Zrzut%20ekranu%202026-02-26%20o%2012.29.53.png' },
-  { id: 'A.02', building: 'A', floor: 0, rooms: 4, area: 68.15, price: 613350, status: 'reserved' },
-  { id: 'A.03', building: 'A', floor: 0, rooms: 4, area: 85.20, price: 766800, status: 'available' },
-  { id: 'A.04', building: 'A', floor: 0, rooms: 4, area: 85.50, price: 769500, status: 'sold' },
-  { id: 'A.05', building: 'A', floor: 1, rooms: 3, area: 62.30, price: 572120, status: 'available' },
-  { id: 'A.06', building: 'A', floor: 1, rooms: 4, area: 68.15, price: 625780, status: 'available' },
-  { id: 'A.07', building: 'A', floor: 1, rooms: 4, area: 85.20, price: 784840, status: 'reserved' },
-  { id: 'A.08', building: 'A', floor: 1, rooms: 4, area: 85.50, price: 787600, status: 'available' },
-  { id: 'A.09', building: 'A', floor: 2, rooms: 3, area: 62.30, price: 583540, status: 'available' },
-  { id: 'A.10', building: 'A', floor: 2, rooms: 4, area: 68.15, price: 638210, status: 'sold' },
-  { id: 'A.11', building: 'A', floor: 2, rooms: 4, area: 85.20, price: 802880, status: 'available' },
-  { id: 'A.12', building: 'A', floor: 2, rooms: 4, area: 85.50, price: 805700, status: 'available' },
-  { id: 'A.13', building: 'A', floor: 3, rooms: 3, area: 62.30, price: 594960, status: 'reserved' },
-  { id: 'A.14', building: 'A', floor: 3, rooms: 4, area: 68.15, price: 650640, status: 'available' },
-  { id: 'A.15', building: 'A', floor: 3, rooms: 4, area: 85.20, price: 820920, status: 'available' },
-  { id: 'A.16', building: 'A', floor: 3, rooms: 4, area: 85.50, price: 823800, status: 'sold' },
-  { id: 'A.17', building: 'A', floor: 4, rooms: 3, area: 62.30, price: 606380, status: 'available' },
-  { id: 'A.18', building: 'A', floor: 4, rooms: 4, area: 68.15, price: 663070, status: 'available' },
-  { id: 'A.19', building: 'A', floor: 4, rooms: 4, area: 85.20, price: 838960, status: 'reserved' },
-  { id: 'A.20', building: 'A', floor: 4, rooms: 4, area: 85.50, price: 841900, status: 'available' },
+  // Klatka A — PARTER
+  { id: 1,  staircase: 'A', floor: 0, rooms: 3, area: 67.47, status: 'available', card: 'assets/karty_lokali/1.pdf' },
+  { id: 2,  staircase: 'A', floor: 0, rooms: 1, area: 42.00, status: 'available', card: 'assets/karty_lokali/2.pdf' },
+  { id: 3,  staircase: 'A', floor: 0, rooms: 2, area: 44.92, status: 'available', card: 'assets/karty_lokali/3.pdf' },
+  { id: 4,  staircase: 'A', floor: 0, rooms: 2, area: 45.04, status: 'available', card: 'assets/karty_lokali/4.pdf' },
+  { id: 5,  staircase: 'A', floor: 0, rooms: 2, area: 46.20, status: 'available', card: 'assets/karty_lokali/5.pdf' },
+  { id: 6,  staircase: 'A', floor: 0, rooms: 1, area: 26.06, status: 'available', card: 'assets/karty_lokali/6.pdf' },
 
-  // Building B
-  { id: 'B.01', building: 'B', floor: 0, rooms: 3, area: 63.10, price: 567900, status: 'available' },
-  { id: 'B.02', building: 'B', floor: 0, rooms: 4, area: 67.80, price: 610200, status: 'sold' },
-  { id: 'B.03', building: 'B', floor: 0, rooms: 4, area: 84.50, price: 760500, status: 'available' },
-  { id: 'B.04', building: 'B', floor: 0, rooms: 4, area: 86.10, price: 774900, status: 'available' },
-  { id: 'B.05', building: 'B', floor: 1, rooms: 3, area: 63.10, price: 579240, status: 'reserved' },
-  { id: 'B.06', building: 'B', floor: 1, rooms: 4, area: 67.80, price: 622560, status: 'available' },
-  { id: 'B.07', building: 'B', floor: 1, rooms: 4, area: 84.50, price: 778100, status: 'available' },
-  { id: 'B.08', building: 'B', floor: 1, rooms: 4, area: 86.10, price: 792120, status: 'sold' },
-  { id: 'B.09', building: 'B', floor: 2, rooms: 3, area: 63.10, price: 590580, status: 'available' },
-  { id: 'B.10', building: 'B', floor: 2, rooms: 4, area: 67.80, price: 634920, status: 'available' },
-  { id: 'B.11', building: 'B', floor: 2, rooms: 4, area: 84.50, price: 795700, status: 'reserved' },
-  { id: 'B.12', building: 'B', floor: 2, rooms: 4, area: 86.10, price: 809340, status: 'available' },
-  { id: 'B.13', building: 'B', floor: 3, rooms: 3, area: 63.10, price: 601920, status: 'available' },
-  { id: 'B.14', building: 'B', floor: 3, rooms: 4, area: 67.80, price: 647280, status: 'sold' },
-  { id: 'B.15', building: 'B', floor: 3, rooms: 4, area: 84.50, price: 813300, status: 'available' },
-  { id: 'B.16', building: 'B', floor: 3, rooms: 4, area: 86.10, price: 826560, status: 'available' },
-  { id: 'B.17', building: 'B', floor: 4, rooms: 3, area: 63.10, price: 613260, status: 'available' },
-  { id: 'B.18', building: 'B', floor: 4, rooms: 4, area: 67.80, price: 659640, status: 'reserved' },
-  { id: 'B.19', building: 'B', floor: 4, rooms: 4, area: 84.50, price: 830900, status: 'available' },
-  { id: 'B.20', building: 'B', floor: 4, rooms: 4, area: 86.10, price: 843780, status: 'available' },
+  // Klatka A — PIĘTRO 1
+  { id: 7,  staircase: 'A', floor: 1, rooms: 3, area: 76.69, status: 'available', card: 'assets/karty_lokali/7.pdf' },
+  { id: 8,  staircase: 'A', floor: 1, rooms: 2, area: 47.28, status: 'available', card: 'assets/karty_lokali/8.pdf' },
+  { id: 9,  staircase: 'A', floor: 1, rooms: 2, area: 44.92, status: 'available', card: 'assets/karty_lokali/9.pdf' },
+  { id: 10, staircase: 'A', floor: 1, rooms: 2, area: 45.04, status: 'available', card: 'assets/karty_lokali/10.pdf' },
+  { id: 11, staircase: 'A', floor: 1, rooms: 2, area: 46.20, status: 'available', card: 'assets/karty_lokali/11.pdf' },
+  { id: 12, staircase: 'A', floor: 1, rooms: 1, area: 26.06, status: 'available', card: 'assets/karty_lokali/12.pdf' },
 
-  // Building C (Etap II)
-  { id: 'C.01', building: 'C', floor: 0, rooms: 3, area: 64.20, price: 577800, status: 'available' },
-  { id: 'C.02', building: 'C', floor: 0, rooms: 4, area: 69.40, price: 624600, status: 'available' },
-  { id: 'C.03', building: 'C', floor: 0, rooms: 4, area: 83.80, price: 754200, status: 'available' },
-  { id: 'C.04', building: 'C', floor: 0, rooms: 4, area: 85.90, price: 773100, status: 'available' },
-  { id: 'C.05', building: 'C', floor: 1, rooms: 3, area: 64.20, price: 589560, status: 'available' },
-  { id: 'C.06', building: 'C', floor: 1, rooms: 4, area: 69.40, price: 637280, status: 'available' },
-  { id: 'C.07', building: 'C', floor: 1, rooms: 4, area: 83.80, price: 771960, status: 'available' },
-  { id: 'C.08', building: 'C', floor: 1, rooms: 4, area: 85.90, price: 790280, status: 'available' },
-  { id: 'C.09', building: 'C', floor: 2, rooms: 3, area: 64.20, price: 601320, status: 'available' },
-  { id: 'C.10', building: 'C', floor: 2, rooms: 4, area: 69.40, price: 649960, status: 'available' },
-  { id: 'C.11', building: 'C', floor: 2, rooms: 4, area: 83.80, price: 789720, status: 'available' },
-  { id: 'C.12', building: 'C', floor: 2, rooms: 4, area: 85.90, price: 807460, status: 'available' },
-  { id: 'C.13', building: 'C', floor: 3, rooms: 3, area: 64.20, price: 613080, status: 'available' },
-  { id: 'C.14', building: 'C', floor: 3, rooms: 4, area: 69.40, price: 662640, status: 'available' },
-  { id: 'C.15', building: 'C', floor: 3, rooms: 4, area: 83.80, price: 807480, status: 'available' },
-  { id: 'C.16', building: 'C', floor: 3, rooms: 4, area: 85.90, price: 824640, status: 'available' },
-  { id: 'C.17', building: 'C', floor: 4, rooms: 3, area: 64.20, price: 624840, status: 'available' },
-  { id: 'C.18', building: 'C', floor: 4, rooms: 4, area: 69.40, price: 675320, status: 'available' },
-  { id: 'C.19', building: 'C', floor: 4, rooms: 4, area: 83.80, price: 825240, status: 'available' },
-  { id: 'C.20', building: 'C', floor: 4, rooms: 4, area: 85.90, price: 841820, status: 'available' },
+  // Klatka A — PIĘTRO 2
+  { id: 13, staircase: 'A', floor: 2, rooms: 3, area: 76.69, status: 'available', card: 'assets/karty_lokali/13.pdf' },
+  { id: 14, staircase: 'A', floor: 2, rooms: 2, area: 47.28, status: 'available', card: 'assets/karty_lokali/14.pdf' },
+  { id: 15, staircase: 'A', floor: 2, rooms: 2, area: 44.92, status: 'available', card: 'assets/karty_lokali/15.pdf' },
+  { id: 16, staircase: 'A', floor: 2, rooms: 2, area: 45.04, status: 'available', card: 'assets/karty_lokali/16.pdf' },
+  { id: 17, staircase: 'A', floor: 2, rooms: 2, area: 46.20, status: 'available', card: 'assets/karty_lokali/17.pdf' },
+  { id: 18, staircase: 'A', floor: 2, rooms: 1, area: 26.06, status: 'available', card: 'assets/karty_lokali/18.pdf' },
 
-  // Building D (Etap II)
-  { id: 'D.01', building: 'D', floor: 0, rooms: 2, area: 45.60, price: 410400, status: 'available' },
-  { id: 'D.02', building: 'D', floor: 0, rooms: 3, area: 62.50, price: 562500, status: 'available' },
-  { id: 'D.03', building: 'D', floor: 0, rooms: 4, area: 84.70, price: 762300, status: 'available' },
-  { id: 'D.04', building: 'D', floor: 0, rooms: 4, area: 85.30, price: 767700, status: 'available' },
-  { id: 'D.05', building: 'D', floor: 1, rooms: 2, area: 45.60, price: 419520, status: 'available' },
-  { id: 'D.06', building: 'D', floor: 1, rooms: 3, area: 62.50, price: 575000, status: 'available' },
-  { id: 'D.07', building: 'D', floor: 1, rooms: 4, area: 84.70, price: 779240, status: 'available' },
-  { id: 'D.08', building: 'D', floor: 1, rooms: 4, area: 85.30, price: 784760, status: 'available' },
-  { id: 'D.09', building: 'D', floor: 2, rooms: 2, area: 45.60, price: 428640, status: 'available' },
-  { id: 'D.10', building: 'D', floor: 2, rooms: 3, area: 62.50, price: 587500, status: 'available' },
-  { id: 'D.11', building: 'D', floor: 2, rooms: 4, area: 84.70, price: 796180, status: 'available' },
-  { id: 'D.12', building: 'D', floor: 2, rooms: 4, area: 85.30, price: 801820, status: 'available' },
-  { id: 'D.13', building: 'D', floor: 3, rooms: 2, area: 45.60, price: 437760, status: 'available' },
-  { id: 'D.14', building: 'D', floor: 3, rooms: 3, area: 62.50, price: 600000, status: 'available' },
-  { id: 'D.15', building: 'D', floor: 3, rooms: 4, area: 84.70, price: 813120, status: 'available' },
-  { id: 'D.16', building: 'D', floor: 3, rooms: 4, area: 85.30, price: 818880, status: 'available' },
-  { id: 'D.17', building: 'D', floor: 4, rooms: 2, area: 45.60, price: 446880, status: 'available' },
-  { id: 'D.18', building: 'D', floor: 4, rooms: 3, area: 62.50, price: 612500, status: 'available' },
-  { id: 'D.19', building: 'D', floor: 4, rooms: 4, area: 84.70, price: 830060, status: 'available' },
-  { id: 'D.20', building: 'D', floor: 4, rooms: 4, area: 85.30, price: 835940, status: 'available' },
+  // Klatka A — PIĘTRO 3
+  { id: 19, staircase: 'A', floor: 3, rooms: 2, area: 40.34, status: 'available', card: null },
+  { id: 20, staircase: 'A', floor: 3, rooms: 2, area: 39.12, status: 'available', card: 'assets/karty_lokali/20.pdf' },
+  { id: 21, staircase: 'A', floor: 3, rooms: 2, area: 33.45, status: 'available', card: 'assets/karty_lokali/21.pdf' },
+  { id: 22, staircase: 'A', floor: 3, rooms: 2, area: 33.21, status: 'available', card: 'assets/karty_lokali/22.pdf' },
+  { id: 23, staircase: 'A', floor: 3, rooms: 4, area: 71.10, status: 'available', card: 'assets/karty_lokali/23.pdf' },
+
+  // Klatka B — PARTER
+  { id: 24, staircase: 'B', floor: 0, rooms: 2, area: 33.17, status: 'available', card: 'assets/karty_lokali/24.pdf' },
+  { id: 25, staircase: 'B', floor: 0, rooms: 1, area: 31.54, status: 'available', card: 'assets/karty_lokali/25.pdf' },
+  { id: 26, staircase: 'B', floor: 0, rooms: 1, area: 31.49, status: 'available', card: 'assets/karty_lokali/26.pdf' },
+  { id: 27, staircase: 'B', floor: 0, rooms: 1, area: 31.49, status: 'available', card: 'assets/karty_lokali/27.pdf' },
+  { id: 28, staircase: 'B', floor: 0, rooms: 3, area: 59.11, status: 'available', card: 'assets/karty_lokali/28.pdf' },
+
+  // Klatka B — PIĘTRO 1
+  { id: 29, staircase: 'B', floor: 1, rooms: 2, area: 33.17, status: 'available', card: 'assets/karty_lokali/29.pdf' },
+  { id: 30, staircase: 'B', floor: 1, rooms: 1, area: 31.54, status: 'available', card: 'assets/karty_lokali/30.pdf' },
+  { id: 31, staircase: 'B', floor: 1, rooms: 1, area: 31.49, status: 'available', card: 'assets/karty_lokali/31.pdf' },
+  { id: 32, staircase: 'B', floor: 1, rooms: 1, area: 31.49, status: 'available', card: 'assets/karty_lokali/32.pdf' },
+  { id: 33, staircase: 'B', floor: 1, rooms: 3, area: 64.64, status: 'available', card: 'assets/karty_lokali/33.pdf' },
+
+  // Klatka B — PIĘTRO 2
+  { id: 34, staircase: 'B', floor: 2, rooms: 2, area: 33.17, status: 'available', card: 'assets/karty_lokali/34.pdf' },
+  { id: 35, staircase: 'B', floor: 2, rooms: 1, area: 31.54, status: 'available', card: 'assets/karty_lokali/35.pdf' },
+  { id: 36, staircase: 'B', floor: 2, rooms: 1, area: 31.49, status: 'available', card: 'assets/karty_lokali/36.pdf' },
+  { id: 37, staircase: 'B', floor: 2, rooms: 1, area: 31.49, status: 'available', card: 'assets/karty_lokali/37.pdf' },
+  { id: 38, staircase: 'B', floor: 2, rooms: 3, area: 64.64, status: 'available', card: 'assets/karty_lokali/38.pdf' },
+
+  // Klatka B — PIĘTRO 3
+  { id: 39, staircase: 'B', floor: 3, rooms: 2, area: 39.81, status: 'available', card: 'assets/karty_lokali/39.pdf' },
+  { id: 40, staircase: 'B', floor: 3, rooms: 1, area: 25.37, status: 'available', card: 'assets/karty_lokali/40.pdf' },
+  { id: 41, staircase: 'B', floor: 3, rooms: 1, area: 25.37, status: 'available', card: 'assets/karty_lokali/41.pdf' },
+  { id: 42, staircase: 'B', floor: 3, rooms: 1, area: 25.70, status: 'available', card: 'assets/karty_lokali/42.pdf' },
+  { id: 43, staircase: 'B', floor: 3, rooms: 2, area: 48.33, status: 'available', card: 'assets/karty_lokali/43.pdf' },
 ];
 
 // ============================================
 // GALLERY DATA
 // ============================================
 const galleryImages = [
-  { src: 'assets/images/5-render_4.webp', label: 'Wizualizacja — Główna elewacja' },
-  { src: 'assets/images/2-render.webp', label: 'Wizualizacja — Widok zewnętrzny 1' },
-  { src: 'assets/images/3-render_2.webp', label: 'Wizualizacja — Widok zewnętrzny 2' },
-  { src: 'assets/images/4-render_3.webp', label: 'Wizualizacja — Widok na zieleń' },
+  { src: 'assets/images/5-render_4.webp', label: 'Wizualizacja — Elewacja frontowa' },
+  { src: 'assets/images/2-render.webp', label: 'Wizualizacja — Widok zewnętrzny' },
+  { src: 'assets/images/3-render_2.webp', label: 'Wizualizacja — Perspektywa uliczna' },
+  { src: 'assets/images/4-render_3.webp', label: 'Wizualizacja — Otoczenie zieleni' },
   { src: 'assets/images/6-render_5.webp', label: 'Wizualizacja — Balkony' },
   { src: 'assets/images/7-render 16.webp', label: 'Wizualizacja — Dziedziniec' },
   { src: 'assets/images/8-render_9.webp', label: 'Wizualizacja — Tarasy' },
-  { src: 'assets/images/9-render_10.webp', label: 'Wizualizacja — Detale architektoniczne' },
+  { src: 'assets/images/9-render_10.webp', label: 'Wizualizacja — Detale elewacji' },
   { src: 'assets/images/10-render_11.webp', label: 'Wizualizacja — Widok z ulicy' },
-  { src: 'assets/images/11-render_12.webp', label: 'Wizualizacja — Narożnik budynku (dzień)' },
-  { src: 'assets/images/12-render_13.webp', label: 'Wizualizacja — Narożnik budynku (zachód słońca)' },
-  { src: 'assets/images/13-render_14.webp', label: 'Wizualizacja — Narożnik budynku (światło dzienne)' },
-  { src: 'assets/images/14-render_15.webp', label: 'Wizualizacja — Narożnik budynku (wieczór)' },
-  { src: 'assets/K200_pow_wsp/Korytarz%20z%20muralem%20%C5%81odzi.webp', label: 'Przestrzeń wspólna — Korytarz (zdjęcie poglądowe)' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%2027%20lut%202026,%2011_52_09.webp', label: 'Przestrzeń wspólna — Wnętrze (zdjęcie poglądowe)' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%202%20mar%202026,%2008_14_32.webp', label: 'Przestrzeń wspólna — Lobby (zdjęcie poglądowe)' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%202%20mar%202026,%2008_16_13.webp', label: 'Przestrzeń wspólna — Detal (zdjęcie poglądowe)' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%203%20mar%202026,%2008_50_07.webp', label: 'Przestrzeń wspólna — Wypoczynek (zdjęcie poglądowe)' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%203%20mar%202026,%2008_50_17.webp', label: 'Przestrzeń wspólna — Strefa relaksu (zdjęcie poglądowe)' }
+  { src: 'assets/images/11-render_12.webp', label: 'Wizualizacja — Narożnik budynku' },
+  { src: 'assets/images/12-render_13.webp', label: 'Wizualizacja — Panorama' },
+  { src: 'assets/images/13-render_14.webp', label: 'Wizualizacja — Ujęcie boczne' },
+  { src: 'assets/images/14-render_15.webp', label: 'Wizualizacja — Wieczór' },
+  { src: 'assets/K200_pow_wsp/Korytarz%20z%20muralem%20%C5%81odzi.webp', label: 'Przestrzeń wspólna — Korytarz' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%2027%20lut%202026,%2011_52_09.webp', label: 'Przestrzeń wspólna — Wnętrze' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%202%20mar%202026,%2008_14_32.webp', label: 'Przestrzeń wspólna — Lobby' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%202%20mar%202026,%2008_16_13.webp', label: 'Przestrzeń wspólna — Detal' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%203%20mar%202026,%2008_50_07.webp', label: 'Przestrzeń wspólna — Wypoczynek' },
+  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%203%20mar%202026,%2008_50_17.webp', label: 'Przestrzeń wspólna — Strefa relaksu' }
 ];
+
+// Floor plan images (split from r1.pdf and r2.pdf)
+const floorPlanImages = {
+  0: 'assets/images/floor_parter.webp',
+  1: 'assets/images/floor_pietro1.webp',
+  2: 'assets/images/floor_pietro2.webp',
+  3: 'assets/images/floor_pietro3.webp'
+};
+
+const floorLabels = {
+  0: 'Parter',
+  1: 'Piętro 1',
+  2: 'Piętro 2',
+  3: 'Piętro 3'
+};
 
 // ============================================
 // STATE
 // ============================================
 let filteredApartments = [...apartments];
 let currentPage = 1;
-const perPage = 10;
+const perPage = 12;
 let sortColumn = -1;
 let sortDirection = 1;
 
@@ -254,17 +240,8 @@ function animateCounter(element, target) {
 // ============================================
 // APARTMENT TABLE
 // ============================================
-function formatPrice(num) {
-  return num.toLocaleString('pl-PL', { style: 'currency', currency: 'PLN', minimumFractionDigits: 0, maximumFractionDigits: 0 });
-}
-
-function formatPricePerM2(price, area) {
-  return (price / area).toLocaleString('pl-PL', { style: 'currency', currency: 'PLN', minimumFractionDigits: 0, maximumFractionDigits: 0 });
-}
-
 function getFloorLabel(floor) {
-  if (floor === 0) return 'Parter';
-  return floor + ' piętro';
+  return floorLabels[floor] || `Piętro ${floor}`;
 }
 
 function getStatusBadge(status) {
@@ -284,20 +261,19 @@ function renderApartments() {
   const pageData = filteredApartments.slice(start, end);
 
   body.innerHTML = pageData.map(apt => `
-    <tr>
+    <tr class="${apt.status === 'sold' ? 'row-sold' : ''}">
       <td>${apt.id}</td>
-      <td>Budynek ${apt.building}</td>
       <td>${getFloorLabel(apt.floor)}</td>
       <td>${apt.rooms}</td>
       <td>${apt.area.toFixed(2)} m²</td>
-      <td>${formatPrice(apt.price)}</td>
-      <td>${formatPricePerM2(apt.price, apt.area)}/m²</td>
+      <td>—</td>
+      <td>—</td>
       <td>${getStatusBadge(apt.status)}</td>
       <td>
-        <button class="table-action-btn" title="Karta lokalu" onclick="${apt.card ? `window.open('${apt.card}', '_blank')` : `alert('Karta lokalu ${apt.id} — wkrótce dostępna jako PDF')`}">
+        <button class="table-action-btn" title="Karta lokalu" onclick="${apt.card ? `openApartmentCard(${apt.id})` : `alert('Karta lokalu ${apt.id} — wkrótce dostępna')`}">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </button>
-        <button class="table-action-btn" title="Zapytaj o lokal" onclick="askAboutApartment('${apt.id}')">
+        <button class="table-action-btn" title="Zapytaj o lokal" onclick="askAboutApartment(${apt.id})">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         </button>
       </td>
@@ -335,15 +311,13 @@ function goToPage(page) {
 }
 
 function filterApartments() {
-  const building = document.getElementById('filter-building').value;
   const rooms = document.getElementById('filter-rooms').value;
   const floor = document.getElementById('filter-floor').value;
   const status = document.getElementById('filter-status').value;
 
   filteredApartments = apartments.filter(apt => {
-    if (building && apt.building !== building) return false;
     if (rooms && apt.rooms !== +rooms) return false;
-    if (floor !== '' && apt.floor !== +floor) return false;
+    if (floor !== '' && floor && apt.floor !== +floor) return false;
     if (status && apt.status !== status) return false;
     return true;
   });
@@ -354,7 +328,6 @@ function filterApartments() {
 }
 
 function resetFilters() {
-  document.getElementById('filter-building').value = '';
   document.getElementById('filter-rooms').value = '';
   document.getElementById('filter-floor').value = '';
   document.getElementById('filter-status').value = '';
@@ -365,7 +338,8 @@ function resetFilters() {
 }
 
 function sortTable(colIndex) {
-  const keys = ['id', 'building', 'floor', 'rooms', 'area', 'price', 'pricePerM2'];
+  // Columns: id(0), floor(1), rooms(2), area(3), price(4), pricePerM2(5)
+  const keys = ['id', 'floor', 'rooms', 'area'];
 
   if (sortColumn === colIndex) {
     sortDirection *= -1;
@@ -375,15 +349,10 @@ function sortTable(colIndex) {
   }
 
   filteredApartments.sort((a, b) => {
-    let valA, valB;
-    if (colIndex === 6) {
-      valA = a.price / a.area;
-      valB = b.price / b.area;
-    } else {
-      const key = keys[colIndex];
-      valA = a[key];
-      valB = b[key];
-    }
+    const key = keys[colIndex];
+    if (!key) return 0;
+    const valA = a[key];
+    const valB = b[key];
 
     if (typeof valA === 'string') {
       return valA.localeCompare(valB) * sortDirection;
@@ -429,6 +398,34 @@ function askAboutApartment(id) {
 }
 
 // ============================================
+// APARTMENT CARD VIEWER
+// ============================================
+function openApartmentCard(id) {
+  const apt = apartments.find(a => a.id === id);
+  if (!apt || !apt.card) {
+    alert(`Karta lokalu ${id} — wkrótce dostępna`);
+    return;
+  }
+
+  const modal = document.getElementById('apartmentCardModal');
+  const iframe = document.getElementById('apartmentCardFrame');
+  const title = document.getElementById('apartmentCardTitle');
+
+  title.textContent = `Lokal ${apt.id} — ${getFloorLabel(apt.floor)}, ${apt.rooms} pok., ${apt.area.toFixed(2)} m²`;
+  iframe.src = apt.card;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeApartmentCard() {
+  const modal = document.getElementById('apartmentCardModal');
+  const iframe = document.getElementById('apartmentCardFrame');
+  iframe.src = '';
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ============================================
 // PRICE REPORT
 // ============================================
 function renderPriceReport() {
@@ -440,29 +437,12 @@ function renderPriceReport() {
     return;
   }
 
-  const prices = available.map(a => a.price);
-  const pricesPerM2 = available.map(a => a.price / a.area);
   const areas = available.map(a => a.area);
-
-  const minPrice = Math.min(...prices);
-  const maxPrice = Math.max(...prices);
-  const avgPricePerM2 = pricesPerM2.reduce((s, v) => s + v, 0) / pricesPerM2.length;
   const minArea = Math.min(...areas);
   const maxArea = Math.max(...areas);
+  const rooms = [...new Set(available.map(a => a.rooms))].sort();
 
   container.innerHTML = `
-    <div class="price-stat">
-      <div class="price-stat-value">${formatPrice(minPrice)}</div>
-      <div class="price-stat-label">Cena od</div>
-    </div>
-    <div class="price-stat">
-      <div class="price-stat-value">${formatPrice(maxPrice)}</div>
-      <div class="price-stat-label">Cena do</div>
-    </div>
-    <div class="price-stat">
-      <div class="price-stat-value">${avgPricePerM2.toLocaleString('pl-PL', { maximumFractionDigits: 0 })} zł</div>
-      <div class="price-stat-label">Średnia cena / m²</div>
-    </div>
     <div class="price-stat">
       <div class="price-stat-value">${available.length}</div>
       <div class="price-stat-label">Dostępnych lokali</div>
@@ -470,6 +450,14 @@ function renderPriceReport() {
     <div class="price-stat">
       <div class="price-stat-value">${minArea.toFixed(0)}–${maxArea.toFixed(0)} m²</div>
       <div class="price-stat-label">Zakres powierzchni</div>
+    </div>
+    <div class="price-stat">
+      <div class="price-stat-value">${rooms.join(', ')}</div>
+      <div class="price-stat-label">Liczba pokoi</div>
+    </div>
+    <div class="price-stat">
+      <div class="price-stat-value">4</div>
+      <div class="price-stat-label">Piętra</div>
     </div>
   `;
 }
@@ -504,6 +492,7 @@ function closeLightbox() {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeLightbox();
+    closeApartmentCard();
     // Also close any open modals
     document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
     document.body.style.overflow = '';
@@ -519,7 +508,7 @@ function populateContactApartments() {
   available.forEach(apt => {
     const option = document.createElement('option');
     option.value = apt.id;
-    option.textContent = `${apt.id} — ${apt.rooms} pok., ${apt.area} m², ${formatPrice(apt.price)}`;
+    option.textContent = `Lokal ${apt.id} — ${apt.rooms} pok., ${apt.area} m²`;
     select.appendChild(option);
   });
 }
@@ -575,6 +564,112 @@ function initLocationTabs() {
       }
     });
   });
+}
+
+// ============================================
+// INTERACTIVE MAP / APARTMENT FINDER
+// ============================================
+function initInteractiveMap() {
+  const buildingView = document.getElementById('building-view');
+  const floorView = document.getElementById('floor-view');
+  const backBtn = document.getElementById('btn-back-to-building');
+  const finderTitle = document.getElementById('finder-title');
+
+  if (!buildingView) return;
+
+  // Building view: click on floor polygon
+  buildingView.querySelectorAll('.finder-poly[data-floor]').forEach(poly => {
+    poly.addEventListener('click', () => {
+      const floor = parseInt(poly.getAttribute('data-floor'));
+      showFloorView(floor);
+    });
+  });
+
+  // Back button
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      showBuildingView();
+    });
+  }
+}
+
+function showBuildingView() {
+  const buildingView = document.getElementById('building-view');
+  const floorView = document.getElementById('floor-view');
+  const backBtn = document.getElementById('btn-back-to-building');
+  const finderTitle = document.getElementById('finder-title');
+
+  buildingView.style.display = '';
+  floorView.style.display = 'none';
+  backBtn.style.display = 'none';
+  finderTitle.textContent = 'Wybierz piętro na budynku';
+}
+
+function showFloorView(floor) {
+  const buildingView = document.getElementById('building-view');
+  const floorView = document.getElementById('floor-view');
+  const backBtn = document.getElementById('btn-back-to-building');
+  const finderTitle = document.getElementById('finder-title');
+
+  buildingView.style.display = 'none';
+  floorView.style.display = '';
+  backBtn.style.display = '';
+  finderTitle.textContent = `Rzut — ${floorLabels[floor]}`;
+
+  // Set up the floor plan image
+  const floorPlanImg = floorView.querySelector('.floor-plan-img');
+  if (floorPlanImg) {
+    floorPlanImg.src = floorPlanImages[floor];
+    floorPlanImg.alt = `Rzut ${floorLabels[floor]}`;
+  }
+
+  // Render the apartment list for this floor
+  renderFloorApartmentList(floor);
+}
+
+function renderFloorApartmentList(floor) {
+  const container = document.getElementById('floor-apartment-list');
+  if (!container) return;
+
+  const floorApartments = apartments.filter(a => a.floor === floor);
+
+  container.innerHTML = floorApartments.map(apt => {
+    const statusClass = apt.status === 'available' ? 'apt-available' : apt.status === 'reserved' ? 'apt-reserved' : 'apt-sold';
+    const statusLabel = apt.status === 'available' ? 'Wolne' : apt.status === 'reserved' ? 'Zarezerwowane' : 'Sprzedane';
+
+    return `
+      <div class="floor-apt-card ${statusClass}" onclick="${apt.card ? `openApartmentCard(${apt.id})` : `askAboutApartment(${apt.id})`}">
+        <div class="floor-apt-header">
+          <span class="floor-apt-id">Lokal ${apt.id}</span>
+          <span class="floor-apt-status ${statusClass}">${statusLabel}</span>
+        </div>
+        <div class="floor-apt-details">
+          <div class="floor-apt-detail">
+            <span class="floor-apt-detail-label">Pokoje</span>
+            <span class="floor-apt-detail-value">${apt.rooms}</span>
+          </div>
+          <div class="floor-apt-detail">
+            <span class="floor-apt-detail-label">Pow.</span>
+            <span class="floor-apt-detail-value">${apt.area.toFixed(2)} m²</span>
+          </div>
+          <div class="floor-apt-detail">
+            <span class="floor-apt-detail-label">Klatka</span>
+            <span class="floor-apt-detail-value">${apt.staircase}</span>
+          </div>
+        </div>
+        <div class="floor-apt-actions">
+          ${apt.card ? `<button class="floor-apt-btn floor-apt-btn-card" onclick="event.stopPropagation(); openApartmentCard(${apt.id})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Karta lokalu
+          </button>` : ''}
+          <button class="floor-apt-btn floor-apt-btn-ask" onclick="event.stopPropagation(); askAboutApartment(${apt.id})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Zapytaj
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 // ============================================

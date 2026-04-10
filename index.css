@@ -851,6 +851,269 @@ a.nav-cta:hover {
     cursor: not-allowed;
 }
 
+/* --- Floor View Layout --- */
+.floor-view-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.floor-plan-wrapper {
+    background: #fff;
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+}
+
+.floor-plan-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-height: 150px;
+}
+
+/* --- Floor Apartment List --- */
+.floor-apartment-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--color-bg-primary);
+}
+
+.floor-apt-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.floor-apt-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-success);
+    transition: opacity var(--transition-fast);
+}
+
+.floor-apt-card.apt-reserved::before {
+    background: var(--color-warning);
+}
+
+.floor-apt-card.apt-sold::before {
+    background: var(--color-danger);
+}
+
+.floor-apt-card:hover {
+    border-color: var(--color-border-accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.floor-apt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.floor-apt-id {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.floor-apt-status {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+}
+
+.floor-apt-status.apt-available {
+    color: var(--color-success);
+    background: rgba(62, 207, 110, 0.1);
+    border: 1px solid rgba(62, 207, 110, 0.3);
+}
+
+.floor-apt-status.apt-reserved {
+    color: var(--color-warning);
+    background: rgba(245, 166, 35, 0.1);
+    border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+.floor-apt-status.apt-sold {
+    color: var(--color-danger);
+    background: rgba(231, 76, 60, 0.1);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.floor-apt-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.floor-apt-detail {
+    text-align: center;
+}
+
+.floor-apt-detail-label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    margin-bottom: 2px;
+}
+
+.floor-apt-detail-value {
+    display: block;
+    font-size: var(--fs-small);
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+.floor-apt-actions {
+    display: flex;
+    gap: var(--space-xs);
+    margin-top: var(--space-xs);
+}
+
+.floor-apt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.4rem 0.8rem;
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex: 1;
+    justify-content: center;
+}
+
+.floor-apt-btn-card {
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+}
+
+.floor-apt-btn-card:hover {
+    background: var(--color-accent-light);
+    transform: translateY(-1px);
+}
+
+.floor-apt-btn-ask {
+    background: transparent;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.floor-apt-btn-ask:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* --- Apartment Card Modal --- */
+.apartment-card-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+}
+
+.apartment-card-modal.active {
+    display: flex;
+}
+
+.apartment-card-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border-accent);
+    flex-shrink: 0;
+}
+
+.apartment-card-modal-header h3 {
+    font-family: var(--font-heading);
+    font-size: var(--fs-h3);
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+.apartment-card-close {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.apartment-card-close:hover {
+    color: var(--color-text-primary);
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+}
+
+.apartment-card-modal-body {
+    flex: 1;
+    overflow: hidden;
+}
+
+.apartment-card-modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+}
+
+/* --- Back button style --- */
+#btn-back-to-building {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    transition: all var(--transition-fast);
+}
+
+#btn-back-to-building:hover {
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+}
+
 /* ============================================
    FIND APARTMENT (SEARCH + TABLE)
    ============================================ */
@@ -1861,6 +2124,29 @@ a.nav-cta:hover {
 
     .hero-content {
         padding-bottom: var(--space-xl);
+    }
+
+    .floor-apartment-list {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+    }
+
+    .floor-apt-details {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .finder-header {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+    }
+
+    .apartment-card-modal-header {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .apartment-card-modal-header h3 {
+        font-size: var(--fs-body);
     }
 }
 

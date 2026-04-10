@@ -91,6 +91,7 @@
           <label for="search-rooms">Liczba pokoi</label>
           <select id="search-rooms">
             <option value="">Wszystkie</option>
+            <option value="1">1 pokój</option>
             <option value="2">2 pokoje</option>
             <option value="3">3 pokoje</option>
             <option value="4">4 pokoje</option>
@@ -109,10 +110,9 @@
           <select id="search-floor">
             <option value="">Wszystkie</option>
             <option value="0">Parter</option>
-            <option value="1">I piętro</option>
-            <option value="2">II piętro</option>
-            <option value="3">III piętro</option>
-            <option value="4">IV piętro</option>
+            <option value="1">Piętro 1</option>
+            <option value="2">Piętro 2</option>
+            <option value="3">Piętro 3</option>
           </select>
         </div>
         <button class="search-btn" id="searchBtn" onclick="scrollToApartments()">
@@ -153,15 +153,15 @@
 
       <div class="about-stats reveal reveal-delay-3">
         <div class="stat-item">
-          <span class="stat-number" data-target="80">0</span>
-          <span class="stat-label">Apartamentów</span>
+          <span class="stat-number" data-target="43">0</span>
+          <span class="stat-label">Lokali</span>
         </div>
         <div class="stat-item">
           <span class="stat-number" data-target="4">0</span>
-          <span class="stat-label">Budynki</span>
+          <span class="stat-label">Piętra</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">62–85</span>
+          <span class="stat-number">26–77</span>
           <span class="stat-label">m² Powierzchni</span>
         </div>
       </div>
@@ -256,34 +256,24 @@
 
         <!-- FLOOR VIEW -->
         <div class="finder-container" id="floor-view" style="display:none;">
-          <!-- Placeholder rzutu piętra -->
-          <div style="position: absolute; inset:0; background: #1a1a1a; display: flex; align-items: center; justify-content: center; border: 2px dashed #333;">
-              <span style="color:#666; font-size: 2rem;">MIEJSCE NA RZUT 2D PIĘTRA</span>
+          <div class="floor-view-layout">
+            <div class="floor-plan-wrapper">
+              <img src="" alt="" class="floor-plan-img" loading="lazy">
+            </div>
+            <div class="floor-apartment-list" id="floor-apartment-list">
+              <!-- Populated by JS -->
+            </div>
           </div>
-          <svg class="finder-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
-            <!-- pseudo-polygons for apartments (mockup) -->
-            <polygon points="400,200 900,200 900,900 400,900" data-apt="Mieszkanie A.01" class="finder-poly apt-poly free"></polygon>
-            <polygon points="1000,200 1500,200 1500,900 1000,900" data-apt="Mieszkanie A.02" class="finder-poly apt-poly reserved"></polygon>
-          </svg>
         </div>
       </div>
 
       <!-- Filters -->
       <div class="apartment-filters reveal" style="margin-top: 2rem;">
         <div class="filter-group">
-          <label for="filter-building">Budynek</label>
-          <select id="filter-building" onchange="filterApartments()">
-            <option value="">Wszystkie</option>
-            <option value="A">Budynek A</option>
-            <option value="B">Budynek B</option>
-            <option value="C">Budynek C (Etap II)</option>
-            <option value="D">Budynek D (Etap II)</option>
-          </select>
-        </div>
-        <div class="filter-group">
           <label for="filter-rooms">Pokoje</label>
           <select id="filter-rooms" onchange="filterApartments()">
             <option value="">Wszystkie</option>
+            <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -294,10 +284,9 @@
           <select id="filter-floor" onchange="filterApartments()">
             <option value="">Wszystkie</option>
             <option value="0">Parter</option>
-            <option value="1">I</option>
-            <option value="2">II</option>
-            <option value="3">III</option>
-            <option value="4">IV</option>
+            <option value="1">Piętro 1</option>
+            <option value="2">Piętro 2</option>
+            <option value="3">Piętro 3</option>
           </select>
         </div>
         <div class="filter-group">
@@ -318,12 +307,11 @@
           <thead>
             <tr>
               <th onclick="sortTable(0)">Lokal <span class="sort-arrow">↕</span></th>
-              <th onclick="sortTable(1)">Budynek <span class="sort-arrow">↕</span></th>
-              <th onclick="sortTable(2)">Piętro <span class="sort-arrow">↕</span></th>
-              <th onclick="sortTable(3)">Pokoje <span class="sort-arrow">↕</span></th>
-              <th onclick="sortTable(4)">Powierzchnia <span class="sort-arrow">↕</span></th>
-              <th onclick="sortTable(5)">Cena <span class="sort-arrow">↕</span></th>
-              <th onclick="sortTable(6)">Cena/m² <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(1)">Piętro <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(2)">Pokoje <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable(3)">Powierzchnia <span class="sort-arrow">↕</span></th>
+              <th>Cena</th>
+              <th>Cena/m²</th>
               <th>Status</th>
               <th>Akcje</th>
             </tr>
@@ -760,6 +748,19 @@
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
     <img id="lightboxImg" src="" alt="Powiększone zdjęcie">
+  </div>
+
+  <!-- ============================================
+       APARTMENT CARD MODAL  
+       ============================================ -->
+  <div class="apartment-card-modal" id="apartmentCardModal">
+    <div class="apartment-card-modal-header">
+      <h3 id="apartmentCardTitle">Karta lokalu</h3>
+      <button class="apartment-card-close" onclick="closeApartmentCard()">✕</button>
+    </div>
+    <div class="apartment-card-modal-body">
+      <iframe id="apartmentCardFrame" src="" frameborder="0"></iframe>
+    </div>
   </div>
 
   <!-- ============================================
