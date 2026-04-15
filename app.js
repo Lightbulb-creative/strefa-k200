@@ -628,7 +628,9 @@ function showFloorView(floor) {
       .then(svgText => {
         // Strip non-scaling-stroke so CAD outline lines aren't 1px thick relative to tiny screen
         const optimizedSvg = svgText
-          .replace(/vector-effect="non-scaling-stroke"/g, 'stroke-width="35"')
+          .replace(/vector-effect="non-scaling-stroke"/g, 'stroke-width="8"')
+          .replace(/<title>.*?<\/title>/ig, '')
+          .replace(/<desc>.*?<\/desc>/ig, '')
           .replace(/<svg\s/i, '<svg style="width: 100%; height: auto; display: block;" ');
         floorPlanWrapper.innerHTML = optimizedSvg;
       })
