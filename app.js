@@ -31,7 +31,7 @@ const apartments = [
   { id: 18, staircase: 'A', floor: 2, rooms: 1, area: 26.06, status: 'available', card: 'assets/karty_lokali/18.pdf' },
 
   // Klatka A — PIĘTRO 3
-  { id: 19, staircase: 'A', floor: 3, rooms: 2, area: 40.34, status: 'available', card: null },
+  { id: 19, staircase: 'A', floor: 3, rooms: 2, area: 40.34, status: 'available', card: 'assets/karty_lokali/19.pdf' },
   { id: 20, staircase: 'A', floor: 3, rooms: 2, area: 39.12, status: 'available', card: 'assets/karty_lokali/20.pdf' },
   { id: 21, staircase: 'A', floor: 3, rooms: 2, area: 33.45, status: 'available', card: 'assets/karty_lokali/21.pdf' },
   { id: 22, staircase: 'A', floor: 3, rooms: 2, area: 33.21, status: 'available', card: 'assets/karty_lokali/22.pdf' },
@@ -93,10 +93,10 @@ const galleryImages = [
 
 // Floor plan images (split from r1.pdf and r2.pdf)
 const floorPlanImages = {
-  0: 'assets/images/floor_parter.webp',
-  1: 'assets/images/floor_pietro1.webp',
-  2: 'assets/images/floor_pietro2.webp',
-  3: 'assets/images/floor_pietro3.webp'
+  0: 'assets/rzutykondygnacjiwsvg/parter.svg',
+  1: 'assets/rzutykondygnacjiwsvg/pietro1.svg',
+  2: 'assets/rzutykondygnacjiwsvg/pietro2.svg',
+  3: 'assets/rzutykondygnacjiwsvg/pietro3.svg'
 };
 
 const floorLabels = {
@@ -577,12 +577,15 @@ function initInteractiveMap() {
 
   if (!buildingView) return;
 
-  // Building view: click on floor polygon
+  // Building view: click on floor polygon (supports mobile touch)
   buildingView.querySelectorAll('.finder-poly[data-floor]').forEach(poly => {
-    poly.addEventListener('click', () => {
+    const handleSelect = (e) => {
+      if (e.type === 'touchstart') e.preventDefault();
       const floor = parseInt(poly.getAttribute('data-floor'));
       showFloorView(floor);
-    });
+    };
+    poly.addEventListener('click', handleSelect);
+    poly.addEventListener('touchstart', handleSelect, { passive: false });
   });
 
   // Back button

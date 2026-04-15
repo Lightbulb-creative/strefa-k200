@@ -813,6 +813,9 @@ a.nav-cta:hover {
 .finder-poly {
     opacity: 0;
     cursor: pointer;
+    pointer-events: all;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     transition: opacity var(--transition-fast), fill var(--transition-fast);
 }
 
