@@ -619,11 +619,22 @@ function showFloorView(floor) {
   backBtn.style.display = '';
   finderTitle.textContent = `Rzut — ${floorLabels[floor]}`;
 
-  // Set up the floor plan image
-  const floorPlanImg = floorView.querySelector('.floor-plan-img');
-  if (floorPlanImg) {
-    floorPlanImg.src = floorPlanImages[floor];
-    floorPlanImg.alt = `Rzut ${floorLabels[floor]}`;
+  // Set up the floor plan dynamically to allow SVG vector manipulation (thinner lines on mobile)
+  const floorPlanWrapper = floorView.querySelector('.floor-plan-wrapper');
+  if (floorPlanWrapper) {
+    floorPlanWrapper.innerHTML = '<div style="text-align: center; padding: 2rem; color: #999;">Trwa ładowanie rzutu...</div>';
+    fetch(floorPlanImages[floor])
+      .then(res => res.text())
+      .then(svgText => {
+        // Strip non-scaling-stroke so CAD outline lines aren't 1px thick relative to tiny screen
+        const optimizedSvg = svgText
+          .replace(/vector-effect="non-scaling-stroke"/g, 'stroke-width="35"')
+          .replace(/<svg\s/i, '<svg style="width: 100%; height: auto; display: block;" ');
+        floorPlanWrapper.innerHTML = optimizedSvg;
+      })
+      .catch(err => {
+        console.error('Błąd pobierania rzutu SVG', err);
+      });
   }
 
   // Render the apartment list for this floor
