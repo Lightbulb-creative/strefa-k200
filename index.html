@@ -386,9 +386,7 @@
 
       <div class="contact-grid">
         <!-- Form -->
-        <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/biuro@strefa-k200.pl" method="POST">
-          <input type="hidden" name="_next" value="https://strefak200.pl">
-          <input type="hidden" name="_subject" value="Nowe zapytanie ze strony">
+        <form class="contact-form reveal" id="contactForm" onsubmit="handleFormSubmit(event)">
           <div class="form-group">
             <label for="contact-name">Imię i nazwisko *</label>
             <input type="text" id="contact-name" name="Imie_i_nazwisko" required placeholder="Jan Kowalski">
