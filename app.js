@@ -515,21 +515,69 @@ function populateContactApartments() {
 
 function handleFormSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('contact-name').value;
-
-  // Create success message
+  
   const form = document.getElementById('contactForm');
   const btn = form.querySelector('.submit-btn');
   const originalText = btn.textContent;
-  btn.textContent = '✓ Wysłano!';
-  btn.style.background = 'var(--color-success)';
+  
+  const name = document.getElementById('contact-name').value;
+  const email = document.getElementById('contact-email').value;
+  const phone = document.getElementById('contact-phone').value;
+  const aptSelect = document.getElementById('contact-apartment');
+  const apartment = aptSelect.options[aptSelect.selectedIndex].text;
+  const message = document.getElementById('contact-message').value;
 
-  setTimeout(() => {
-    btn.textContent = originalText;
-    btn.style.background = '';
-    alert(`Dziękujemy, ${name}! Twoje zapytanie zostało wysłane. Skontaktujemy się wkrótce.`);
-    form.reset();
-  }, 1500);
+  btn.textContent = 'Wysyłanie...';
+  btn.style.opacity = '0.7';
+  btn.disabled = true;
+
+  const FORMSUBMIT_EMAIL = "biuro@strefa-k200.pl";
+
+  fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: phone,
+          apartment: apartment,
+          message: message,
+          _subject: "Nowe zapytanie z formularza kontaktowego (" + name + ")",
+          _template: "table"
+      })
+  })
+  .then(async (response) => {
+      let json = await response.json();
+      if (response.status == 200 && json.success === "true") {
+          btn.textContent = '✓ Wysłano!';
+          btn.style.background = 'var(--color-success)';
+          btn.style.opacity = '1';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+            form.reset();
+            alert(`Dziękujemy, ${name}! Twoje zapytanie zostało wysłane. Skontaktujemy się wkrótce.`);
+          }, 1500);
+      } else {
+          console.log(response);
+          throw new Error("API responded with " + response.status);
+      }
+  })
+  .catch(error => {
+      console.log(error);
+      btn.textContent = '❌ Błąd. Zadzwoń do nas, proszę.';
+      btn.style.background = 'red';
+      setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.style.opacity = '1';
+          btn.disabled = false;
+      }, 3500);
+  });
 }
 
 // ============================================
