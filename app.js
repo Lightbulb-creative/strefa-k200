@@ -549,9 +549,8 @@ function handleFormSubmit(e) {
           _template: "table"
       })
   })
-  .then(async (response) => {
-      let json = await response.json();
-      if (response.status == 200 && json.success === "true") {
+  .then((response) => {
+      if (response.ok) {
           btn.textContent = '✓ Wysłano!';
           btn.style.background = 'var(--color-success)';
           btn.style.opacity = '1';
@@ -563,7 +562,7 @@ function handleFormSubmit(e) {
             alert(`Dziękujemy, ${name}! Twoje zapytanie zostało wysłane. Skontaktujemy się wkrótce.`);
           }, 1500);
       } else {
-          console.log(response);
+          console.log("FormSubmit Response Error:", response);
           throw new Error("API responded with " + response.status);
       }
   })
