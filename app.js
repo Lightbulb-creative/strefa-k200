@@ -83,12 +83,9 @@ const galleryImages = [
   { src: 'assets/images/12-render_13.webp', label: 'Wizualizacja — Panorama' },
   { src: 'assets/images/13-render_14.webp', label: 'Wizualizacja — Ujęcie boczne' },
   { src: 'assets/images/14-render_15.webp', label: 'Wizualizacja — Wieczór' },
-  { src: 'assets/K200_pow_wsp/Korytarz%20z%20muralem%20%C5%81odzi.webp', label: 'Przestrzeń wspólna — Korytarz' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%2027%20lut%202026,%2011_52_09.webp', label: 'Przestrzeń wspólna — Wnętrze' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%202%20mar%202026,%2008_14_32.webp', label: 'Przestrzeń wspólna — Lobby' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%202%20mar%202026,%2008_16_13.webp', label: 'Przestrzeń wspólna — Detal' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%203%20mar%202026,%2008_50_07.webp', label: 'Przestrzeń wspólna — Wypoczynek' },
-  { src: 'assets/K200_pow_wsp/ChatGPT%20Image%203%20mar%202026,%2008_50_17.webp', label: 'Przestrzeń wspólna — Strefa relaksu' }
+  { src: 'assets/K200_pow_wsp/Wiz 1 PS.png', label: 'Przestrzeń wspólna — Wnętrze 1' },
+  { src: 'assets/K200_pow_wsp/wiz 2 PS.png', label: 'Przestrzeń wspólna — Wnętrze 2' },
+  { src: 'assets/K200_pow_wsp/Wizka 3 PS.png', label: 'Przestrzeń wspólna — Wnętrze 3' }
 ];
 
 // Floor plan images (split from r1.pdf and r2.pdf)
