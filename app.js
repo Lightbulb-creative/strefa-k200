@@ -32,7 +32,7 @@ const apartments = [
 
   // Klatka A — PIĘTRO 3
   { id: 19, staircase: 'A', floor: 3, rooms: 2, area: 40.34, status: 'available', card: 'assets/karty_lokali/19.pdf' },
-  { id: 20, staircase: 'A', floor: 3, rooms: 2, area: 39.12, status: 'available', card: 'assets/karty_lokali/20.pdf' },
+  { id: 20, staircase: 'A', floor: 3, rooms: 2, area: 26.37, status: 'available', card: 'assets/karty_lokali/20.pdf' },
   { id: 21, staircase: 'A', floor: 3, rooms: 2, area: 33.45, status: 'available', card: 'assets/karty_lokali/21.pdf' },
   { id: 22, staircase: 'A', floor: 3, rooms: 2, area: 33.21, status: 'available', card: 'assets/karty_lokali/22.pdf' },
   { id: 23, staircase: 'A', floor: 3, rooms: 4, area: 71.10, status: 'available', card: 'assets/karty_lokali/23.pdf' },
