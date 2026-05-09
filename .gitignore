@@ -1,3 +1,23 @@
-MATERIALY_DO_DOSTARCZENIA.md
+# macOS
 .DS_Store
 **/.DS_Store
+
+# Edytory
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Środowisko
+.env
+.env.local
+
+# Logi
+*.log
+npm-debug.log*
+
+# Node
+node_modules/
+
+# Materiały wewnętrzne
+MATERIALY_DO_DOSTARCZENIA.md
